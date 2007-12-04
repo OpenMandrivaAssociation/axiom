@@ -1,6 +1,6 @@
 %define name		axiom
 %define axvers		20050901
-%define release		0.%axvers.1mdk
+%define release		 %mkrel 0.%axvers.1
 %define x11shlibdir	%{_prefix}/X11R6/%{_lib}
 
 Summary: Symbolic Computation Program
