@@ -11,7 +11,6 @@ Source0: %{name}-Sept2005-src.tar.bz2
 License: BSD/GPL
 Group: Sciences/Mathematics
 Url: http://axiom.axiom-developer.org
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libgmp-devel
 BuildRequires: libncurses-devel
 BuildRequires: libreadline-devel
