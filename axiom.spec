@@ -16,7 +16,7 @@ BuildRequires: libncurses-devel
 BuildRequires: libreadline-devel
 BuildRequires: binutils-devel
 BuildRequires: X11-devel
-BuildRequires: tetex
+BuildRequires: tetex tetex-latex
 BuildRequires: gawk
 BuildRequires: ghostscript
 Requires:      xterm
