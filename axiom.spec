@@ -15,7 +15,7 @@ BuildRequires: libgmp-devel
 BuildRequires: libncurses-devel
 BuildRequires: libreadline-devel
 BuildRequires: binutils-devel
-BuildRequires: X11-devel
+BuildRequires: X11-devel xpm-static-devel
 BuildRequires: tetex tetex-latex
 BuildRequires: gawk
 BuildRequires: ghostscript
