@@ -5,8 +5,20 @@ Name:		axiom
 Version:	3.4
 Release:	%mkrel 0.%{axvers}.1
 Source0:	%{name}-july2008-src.tgz
+# Axiom build uses an in-tree gcl 2.6.8 snapshot. There's two, and you
+# can switch between them with Makefile changes. Unfortunately, both
+# are too old to build on x86-64 - they fail with an "I am not an
+# object" error. As I can't find where the hell this was fixed, my ugly
+# hack is to simply replace their in-tree snapshot with a newer one.
+# This is just a 2008/08/01 snapshot of gcl CVS, tarred up. It's
+# inserted into the tree in place of the shipped file of the same name
+# in %setup below. - AdamW 2008/08
+Source1:	gcl-2.6.8pre2.tgz
 # Fix underlinking - AdamW 2008/07
 Patch0:		axiom-july2008-underlink.patch
+# Use the new snapshot we forced into the build (see above), and
+# disable one patch which won't apply to it - AdamW 2008/08
+Patch1:		axiom-july2008-gcl.patch
 License:	BSD
 Group:		Sciences/Mathematics
 URL:		http://axiom.axiom-developer.org
@@ -39,7 +51,9 @@ It has a programming language and a built-in compiler.
 
 %prep
 %setup -q -n %{name}
+cp -f %{SOURCE1} zips/gcl-2.6.8pre2.tgz
 %patch0 -p1 -b .underlink
+%patch1 -p1 -b .gcl
 
 %build
 export AXIOM=`pwd`/mnt/linux
