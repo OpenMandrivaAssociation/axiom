@@ -3,7 +3,7 @@
 Summary:	Symbolic Computation Program
 Name:		axiom
 Version:	3.4
-Release:	%mkrel 0.%{axvers}.1
+Release:	%mkrel 0.%{axvers}.2
 Source0:	%{name}-july2008-src.tgz
 # Axiom build uses an in-tree gcl 2.6.8 snapshot. There's two, and you
 # can switch between them with Makefile changes. Unfortunately, both
