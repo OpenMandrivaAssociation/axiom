@@ -1,4 +1,4 @@
-%define axvers	20091101
+%define axvers	20081101
 
 Summary:	Symbolic Computation Program
 Name:		axiom
@@ -51,6 +51,8 @@ cp -f %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} zips
 %patch0 -p1 -b .underlink
 
 %build
+# axiom uses the MAKE environment variable but parallel build fails randomly
+export MAKE=make
 export AXIOM=`pwd`/mnt/linux
 export PATH=$AXIOM/bin:$PATH
 
