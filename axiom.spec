@@ -13,8 +13,11 @@ Source1:	gcl-2.6.8pre.tgz
 Source2:	gcl-2.6.8pre.h.linux.defs.patch
 Source3:	gcl-2.6.8pre.unixport.makefile.patch
 Source4:	gcl-2.6.8pre.unixport.init_gcl.lsp.in.patch
+Source5:	gcl-2.6.8-plt.patch
 # Fix underlinking - AdamW 2008/07
 Patch0:		axiom-july2008-underlink.patch
+# Hot fixes for gcl without the need to upload a newer tarball
+Patch1:		axiom-gcl2.6.8.patch
 License:	BSD
 Group:		Sciences/Mathematics
 URL:		http://axiom.axiom-developer.org
@@ -47,17 +50,16 @@ It has a programming language and a built-in compiler.
 
 %prep
 %setup -q -n %{name}
-cp -f %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} zips
+cp -f %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} zips
 %patch0 -p1 -b .underlink
+%patch1 -p1 -b .gcl
 
 %build
-# axiom uses the MAKE environment variable but parallel build fails randomly
-export MAKE=make
 export AXIOM=`pwd`/mnt/linux
 export PATH=$AXIOM/bin:$PATH
 
 # parallel build fail
-make XLIB=%{_libdir} LDF=-L%{_libdir}
+make XLIB=%{_libdir} LDF=-L%{_libdir} MAKE=make
 
 %install
 mkdir -p %{buildroot}%{_libdir}/%{name}-%{version}
