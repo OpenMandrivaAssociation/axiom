@@ -68,7 +68,7 @@ AXIOM=%{_libdir}/%{name}-%{version}
 export AXIOM
 PATH=\$AXIOM/bin:\$PATH
 export PATH
-exec \$AXIOM/bin/AXIOMsys "\$@"
+exec \$AXIOM/bin/sman "\$@"
 EOF
 chmod +x %{buildroot}%{_bindir}/axiom
 
