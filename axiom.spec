@@ -1,4 +1,5 @@
 %define axvers	20081101
+%define AXIOM	%{_libdir}/%{name}-%{version}
 
 Summary:	Symbolic Computation Program
 Name:		axiom
@@ -64,13 +65,23 @@ cp -far mnt/linux/* %{buildroot}%{_libdir}/%{name}-%{version}
 mkdir -p %{buildroot}%{_bindir}
 cat > %{buildroot}%{_bindir}/axiom <<EOF
 #!/bin/sh
-AXIOM=%{_libdir}/%{name}-%{version}
+AXIOM=%{AXIOM}
 export AXIOM
 PATH=\$AXIOM/bin:\$PATH
 export PATH
 exec \$AXIOM/bin/sman "\$@"
 EOF
 chmod +x %{buildroot}%{_bindir}/axiom
+
+# correct some %{buildroot} references
+perl -pi -e 's|%{buildroot}/axiom/mnt/linux|%{AXIOM}|;'		\
+	%{buildroot}%{AXIOM}/bin/index.html			\
+	%{buildroot}%{AXIOM}/bin/man/man1/*.1			\
+	%{buildroot}%{AXIOM}/bin/lib/pipedocs
+
+# remove executable bit of some text files
+chmod -x %{buildroot}%{AXIOM}/lib/{command.list,copyright}	\
+	`find %{buildroot}%{AXIOM} -name axiom.sty`
 
 %clean
 rm -rf %{buildroot}
