@@ -7,6 +7,18 @@ Version:	3.4
 Release:	%mkrel 0.%{axvers}.1
 Source0:	%{name}-%{axvers}.tar.bz2
 
+# Hint to use the html interface:
+# in axiom prompt type:
+#	)browse
+# in firefox, open localhost:8085/usr/lib64/axiom-3.4/doc/hypertex/topicspage.xhtml
+# or in a shell, type:
+# firefox -remote 'openURL(localhost:8085/usr/lib64/axiom-3.4/doc/hypertex/topicspage.xhtml)'
+# other good starting point is:
+# /usr/lib64/axiom-3.4/doc/axbook/book-index.xhtml
+# of course, if you don't need axiom evaluating expressions, just use:
+# file:///usr/lib64/axiom-3.4/doc/axbook/book-index.xhtml
+# The interface is not complete, and there are several missing features
+
 # git clone git://github.com/daly/axiom.git axiom
 # git archive --format=tar --prefix=axiom/ 84d23719cf7ad90c81d46fa3eba40a12cea5a598 | bzip2 > axiom-20091201.tar.bz2
 
