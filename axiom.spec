@@ -1,21 +1,26 @@
-%define axvers	20081101
+%define axvers	20091201
 %define AXIOM	%{_libdir}/%{name}-%{version}
 
 Summary:	Symbolic Computation Program
 Name:		axiom
 Version:	3.4
 Release:	%mkrel 0.%{axvers}.1
-Source0:	%{name}-nov2008-src.tgz
+Source0:	%{name}-%{axvers}.tar.bz2
+
+# git clone git://github.com/daly/axiom.git axiom
+# git archive --format=tar --prefix=axiom/ 84d23719cf7ad90c81d46fa3eba40a12cea5a598 | bzip2 > axiom-20091201.tar.bz2
+
 # This is the gcl package, as of 20091125, BUILD dir after rpmbuild -bp
 # This allows having an axiom binary that doesn't require
 #	echo 0 >/proc/sys/kernel/randomize_va_space
 # or equivalent sysctl call
-Source1:	gcl-2.6.8pre.tgz
-Source2:	gcl-2.6.8pre.h.linux.defs.patch
-Source3:	gcl-2.6.8pre.unixport.makefile.patch
-Source4:	gcl-2.6.8pre.unixport.init_gcl.lsp.in.patch
+Source1:	gcl-2.6.8pre3.tgz
+Source2:	gcl-2.6.8pre3.h.linux.defs.patch
+Source3:	gcl-2.6.8pre3.unixport.makefile.patch
+Source4:	gcl-2.6.8pre3.unixport.init_gcl.lsp.in.patch
+Source5:	gcl-2.6.8pre3.o.read.d.patch
 # Fix underlinking - AdamW 2008/07
-Patch0:		axiom-july2008-underlink.patch
+Patch0:		axiom-20091201-underlink.patch
 License:	BSD
 Group:		Sciences/Mathematics
 URL:		http://axiom.axiom-developer.org
@@ -48,7 +53,7 @@ It has a programming language and a built-in compiler.
 
 %prep
 %setup -q -n %{name}
-cp -f %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} zips
+cp -f %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} zips
 %patch0 -p1 -b .underlink
 
 %build
