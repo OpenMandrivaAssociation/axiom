@@ -4,7 +4,7 @@
 Summary:	Symbolic Computation Program
 Name:		axiom
 Version:	3.4
-Release:	%mkrel 0.%{axvers}.1
+Release:	%mkrel 0.%{axvers}.2
 Source0:	%{name}-%{axvers}.tar.bz2
 
 # Hint to use the html interface:
