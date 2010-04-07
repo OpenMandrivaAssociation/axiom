@@ -37,7 +37,8 @@ License:	BSD
 Group:		Sciences/Mathematics
 URL:		http://axiom.axiom-developer.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	libgmp-devel
+
+#BuildRequires:	libgmp-devel
 BuildRequires:	libncurses-devel
 BuildRequires:	libreadline-devel
 BuildRequires:	binutils-devel
