@@ -1,10 +1,10 @@
-%define axvers	20091201
+%define axvers	20100407
 %define AXIOM	%{_libdir}/%{name}-%{version}
 
 Summary:	Symbolic Computation Program
 Name:		axiom
 Version:	3.4
-Release:	%mkrel 0.%{axvers}.2
+Release:	%mkrel 0.%{axvers}.1
 Source0:	%{name}-%{axvers}.tar.bz2
 
 # Hint to use the html interface:
@@ -20,7 +20,7 @@ Source0:	%{name}-%{axvers}.tar.bz2
 # The interface is not complete, and there are several missing features
 
 # git clone git://github.com/daly/axiom.git axiom
-# git archive --format=tar --prefix=axiom/ 84d23719cf7ad90c81d46fa3eba40a12cea5a598 | bzip2 > axiom-20091201.tar.bz2
+# git archive --format=tar --prefix=axiom/ d7b61fa6dea4e97d3d329e7cc418ccf6df22ea3f | bzip2 > axiom-20100407.tar.bz2
 
 # This is the gcl package, as of 20091125, BUILD dir after rpmbuild -bp
 # This allows having an axiom binary that doesn't require
