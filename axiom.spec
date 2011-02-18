@@ -1,4 +1,4 @@
-%define axvers	20100719
+%define axvers	20110217
 %define AXIOM	%{_libdir}/%{name}-%{version}
 
 Summary:	Symbolic Computation Program
@@ -21,12 +21,8 @@ Source0:	%{name}-%{axvers}.tar.bz2
 
 # git clone git://github.com/daly/axiom.git axiom
 # cd axiom
-# git archive --format=tar --prefix=axiom/ d7b61fa6dea4e97d3d329e7cc418ccf6df22ea3f | bzip2 > axiom-20100719.tar.bz2
+# git archive --format=tar --prefix=axiom/ c26d9ac9c535e5f5a4506c8b1618fd793f44a57f | bzip2 > axiom-20110217.tar.bz2
 
-# This is the gcl package, as of 20091125, BUILD dir after rpmbuild -bp
-# This allows having an axiom binary that doesn't require
-#	echo 0 >/proc/sys/kernel/randomize_va_space
-# or equivalent sysctl call
 # Fix underlinking - AdamW 2008/07
 Patch0:		axiom-20091201-underlink.patch
 License:	BSD
@@ -48,8 +44,7 @@ BuildRequires:	libxt-devel
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-xtrans-devel
 BuildRequires:	xpm-static-devel
-BuildRequires:	tetex
-BuildRequires:	tetex-latex
+BuildRequires:	texlive
 BuildRequires:	gawk
 BuildRequires:	ghostscript
 Requires:	xterm
