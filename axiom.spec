@@ -64,7 +64,10 @@ export AXIOM=`pwd`/mnt/linux
 export PATH=$AXIOM/bin:$PATH
 
 # parallel build fail
-make XLIB=%{_libdir} LDF=-L%{_libdir} MAKE=make RUNTYPE=serial
+make					\
+	LDF=-L%{_libdir}		\
+	MAKE=make			\
+	XLIB=%{_libdir}
 
 %install
 mkdir -p %{buildroot}%{_libdir}/%{name}-%{version}
