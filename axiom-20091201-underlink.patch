@@ -1,0 +1,24 @@
+diff -p -up axiom/books/bookvol7.pamphlet.orig axiom/books/bookvol7.pamphlet
+--- axiom/books/bookvol7.pamphlet.orig	2009-12-01 20:20:18.814229135 -0200
++++ axiom/books/bookvol7.pamphlet	2009-12-01 20:21:22.047224538 -0200
+@@ -20667,7 +20667,7 @@ ${OUTBIN}/hypertex: ${BOOK}
+ 	@ (cd ${WORK} ; \
+           ${TANGLE} -R"hypertex" ${BOOK} >hypertex.c ; \
+           ${CC} -I${INC} ${CFLAGS} hypertex.c -o ${OUTBIN}/hypertex \
+-	          ${LDFLAGS} -lX11 -lm -L${LIB} )
++	          ${LDFLAGS} -lX11 -lm -lXpm -L${LIB} )
+ 
+ ${HYPER}/bigbayou.png: ${IN}/ps/bigbayou.png
+ 	@ echo 8 making ${HYPER}/bigbayou.png from ${IN}/bigbayou.png
+diff -p -up axiom/books/bookvol8.pamphlet.orig axiom/books/bookvol8.pamphlet
+--- axiom/books/bookvol8.pamphlet.orig	2009-12-01 20:20:33.490224570 -0200
++++ axiom/books/bookvol8.pamphlet	2009-12-01 20:21:05.008224799 -0200
+@@ -20175,7 +20175,7 @@ PSFiles= ${PS}/colorpoly.ps ${PS}/colorw
+          ${PS}/fillwol.ps   ${PS}/header.ps    ${PS}/setup.ps
+ 
+ CFLAGS  = ${CCF} -I${SRC}/include
+-LDFLAGS = ${LDF} -lX11 -lm
++LDFLAGS = ${LDF} -lX11 -lm -lXpm
+ 
+ VLIBS=${LIB}/sockio-c.o ${LIB}/util.o  ${LIB}/bsdsignal.o 
+ 
