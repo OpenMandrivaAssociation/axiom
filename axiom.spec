@@ -4,7 +4,7 @@
 Summary:	Symbolic Computation Program
 Name:		axiom
 Version:	3.4
-Release:	%mkrel 0.%{axvers}.1
+Release:	0.%{axvers}.1
 Source0:	%{name}-%{axvers}.tar.bz2
 
 # Hint to use the html interface:
@@ -43,7 +43,7 @@ BuildRequires:	libxmu-devel
 BuildRequires:	libxt-devel
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-xtrans-devel
-BuildRequires:	xpm-static-devel
+BuildRequires:	xpm-devel
 BuildRequires:	texlive
 BuildRequires:	gawk
 BuildRequires:	ghostscript
