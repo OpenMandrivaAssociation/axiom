@@ -27,7 +27,7 @@ Source0:	%{name}-%{axvers}.tar.bz2
 Patch0:		axiom-20091201-underlink.patch
 License:	BSD
 Group:		Sciences/Mathematics
-URL:		http://axiom.axiom-developer.org
+URL:		https://axiom.axiom-developer.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 #BuildRequires:	libgmp-devel
