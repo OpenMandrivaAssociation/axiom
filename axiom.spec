@@ -31,6 +31,7 @@ URL:		https://axiom.axiom-developer.org
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 #BuildRequires:	libgmp-devel
+BuildRequires:	make
 BuildRequires:	libncurses-devel
 BuildRequires:	libreadline-devel
 BuildRequires:	binutils-devel
